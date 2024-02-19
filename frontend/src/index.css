@@ -1,0 +1,18 @@
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2018/02/17/14/15/template-3160023_960_720.jpg");
+  background-size: cover;
+}
+.links-list {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  justify-content: center;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
