@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+#Hibernate config
+src/main/resources/hibernate.cfg.xml
