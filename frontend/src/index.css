@@ -16,3 +16,9 @@ body {
   display: flex;
   justify-content: center;
 }
+.custom-margin {
+  padding: 1.5rem;
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 50rem;
+}

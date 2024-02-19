@@ -5,7 +5,7 @@ interface IHeading {
 export default function Heading({ content, size = 1 }: IHeading) {
   return (
     <div className="container">
-      <h1 className={`display-${size}`}>{content}</h1>
+      <h1 style={{textAlign:"center"}} className={`display-${size}`}>{content}</h1>
     </div>
   );
 }
