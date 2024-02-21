@@ -1,11 +1,8 @@
-import NavBar from "./components/NavBar";
-import { userContext } from "./components/userContext";
+import NavBar from "./components/header/NavBar";
 export default function App() {
   return (
     <div className="container">
-      <userContext.Provider value={"hey man"}>
-        <NavBar />
-      </userContext.Provider>
+      <NavBar />
     </div>
   );
 }

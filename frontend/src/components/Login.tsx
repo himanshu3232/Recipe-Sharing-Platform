@@ -1,23 +1,40 @@
-import Heading from "./Heading";
+import { useContext } from "react";
+import Heading from "./header/Heading";
+import { userContext } from "./context/userContext";
+import handleAPI from "./handleAPI";
 
 export default function Login() {
+  const context = useContext(userContext);
+
+  async function handleSubmit(event: any) {
+    event.preventDefault();
+    const result: boolean = await handleAPI(
+      "/login",
+      "POST",
+      context?.username,
+      context?.password
+    );
+    context?.setLogin(result);
+    console.log(result);
+  }
   return (
     <>
-    <Heading content="Login!" size={3}/>
+      <Heading content="Login!" size={3} />
       <div className="card custom-margin">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
+              Username
             </label>
             <input
-              type="email"
+              type="text"
               className="form-control"
               id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              aria-describedby="Help"
+              onChange={(e) => context?.setUsername(e.target.value)}
             />
             <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
+              We'll never share your details with anyone else.
             </div>
           </div>
           <div className="mb-3">
@@ -28,6 +45,7 @@ export default function Login() {
               type="password"
               className="form-control"
               id="exampleInputPassword1"
+              onChange={(e) => context?.setPassword(e.target.value)}
             />
           </div>
           <button type="submit" className="btn btn-primary">
