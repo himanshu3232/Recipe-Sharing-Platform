@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Heading from "./header/Heading";
 import { userContext } from "./context/userContext";
 import handleAPI from "./handleAPI";
+import { Navigate } from "react-router-dom";
 
 export default function Login() {
   const context = useContext(userContext);
@@ -15,7 +16,9 @@ export default function Login() {
       context?.password
     );
     context?.setLogin(result);
-    console.log(result);
+    if (context?.login) {
+      <Navigate to="/user" replace />;
+    }
   }
   return (
     <>
