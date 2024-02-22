@@ -7,9 +7,17 @@ export default function Register() {
   const [password, setPassword] = useState<string>("");
   async function handleSubmit(event: any): Promise<void> {
     event.preventDefault();
-    const result: boolean = await handleAPI("/register", "POST", username, password);
-    if(result) console.log("Register success!!")
-    else console.log("Oops")
+    const result: boolean = await handleAPI(
+      "/register",
+      "POST",
+      username,
+      password
+    );
+    handleResult(result);
+  }
+  function handleResult(result: boolean): void {
+    if (result) alert("Registration successful!");
+    else alert("User already exists!");
   }
   return (
     <>
